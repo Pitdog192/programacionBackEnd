@@ -16,10 +16,10 @@ async function leerArchivos (Archivo) {
     return objetoContenido
 }
 
-let respuesta = await leerArchivos('productos.txt');
-let numeroAleatorio = Math.ceil(Math.random()*respuesta.length);
-let productoAleatorio = await producto.getById(numeroAleatorio);
-let productosTodos = await producto.getAll();
+const productos = await leerArchivos('productos.txt');
+let numeroAleatorio = Math.ceil(Math.random()*productos.length);
+const productoAleatorio = await producto.getById(numeroAleatorio);
+const productosTodos = await producto.getAll();
 
 function respuestaServidor (ruta, request, response){
     if (ruta == '/'){

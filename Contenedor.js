@@ -5,6 +5,12 @@ class Contenedor {
         this.nombreArchivo = nombreArchivo
     };
 
+    async manejarArchivo () {
+        let contenido = await fs.promises.readFile(this.nombreArchivo, 'utf-8')
+        let objetoContenido = JSON.parse(contenido)
+        return objetoContenido
+    }
+
     async save (producto) {
         let contenido = await fs.promises.readFile(this.nombreArchivo, 'utf-8')
         let objetoContenido = JSON.parse(contenido)
